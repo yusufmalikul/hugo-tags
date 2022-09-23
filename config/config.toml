@@ -1,0 +1,16 @@
+baseURL = ''
+languageCode = 'en'
+title = 'Yusuf Blog'
+theme = 'danluu'
+[permalinks]
+	posts = '/:slug'
+[params]
+	header = """Welcome to my blog!"""
+	footer = """footer"""
+	siteDescription = """desc"""
+[services.rss]
+	limit = 0
+[markup]
+	[markup.goldmark]
+		[markup.goldmark.renderer]
+			unsafe = true

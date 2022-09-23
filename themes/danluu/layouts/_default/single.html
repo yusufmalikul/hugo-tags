@@ -1,0 +1,22 @@
+{{ partial "header.html" . }}
+<h1>{{ .Title }}</h1>
+<a href="{{ .Site.BaseURL }}/{{ .Params.pdf }}">PDF</a>
+<br>
+<a href="{{ .Site.BaseURL }}">{{ .Site.Title | markdownify }}</a>
+<hr/>
+{{ .Content }}
+<div class="tags-list">
+    {{- with .Params.tags -}}
+        {{- if ge (len .) 1 -}}
+            {{- range . -}}
+                <a href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}/">#{{ . }}</a>
+            {{ end -}}
+        {{- end -}}
+    {{- end -}}
+</div>
+<br>
+<div class="navi-parent"> 
+{{with .Prev}}<a href="{{.Permalink}}">← {{.Title}}</a>{{end}}
+{{with .Next}}<a href="{{.Permalink}}">{{.Title}} →</a>{{end}}
+</div>
+{{ partial "footer.html" . }}
